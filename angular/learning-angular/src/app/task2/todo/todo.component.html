@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Todo App</h2>
+
+  <div class="input-group mb-3">
+    <input [(ngModel)]="newTask" type="text" class="form-control" placeholder="Enter a task">
+    <button class="btn btn-primary" (click)="addOrUpdateTask()">
+      {{ editIndex === null ? 'Add' : 'Update' }}
+    </button>
+  </div>
+
+  <ul class="list-group">
+    <li *ngFor="let task of todos; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+      {{ task }}
+      <div>
+        <button class="btn btn-warning btn-sm me-2" (click)="editTask(i)">Edit</button>
+        <button class="btn btn-danger btn-sm" (click)="removeTask(i)">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>
